@@ -79,5 +79,10 @@ then
   sudo iptables -A INPUT -p tcp --dport $1 -j DROP
 fi
 
-
+#установка iptables-persistent
+sudo apt-get install iptables-persistent -y
+#end
+#save rule
+sudo /sbin/iptables-save
+#end
 exit 0
