@@ -1,15 +1,8 @@
 #!/bin/bash
 
 #  spawn sudo apt install xtables-addons-common
-expect -c '
-  set timeout -1
-  sleep 2
-  sudo apt install xtables-addons-common
-  expect {
-      "Do you want to continue?" {send -- "yes\r"}
-  }
-  expect eof
-'
+sudo apt install xtables-addons-common -y
+
 
 # start change port
 echo "Port $1" >> /etc/ssh/sshd_config
