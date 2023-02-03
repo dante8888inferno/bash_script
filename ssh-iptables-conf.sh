@@ -6,6 +6,9 @@ sudo apt install xtables-addons-common -y
 
 # start change port
 echo "Port $1" >> /etc/ssh/sshd_config
+sudo service sshd restart
+# end
+# start change port2
 echo "Port $2" >> /etc/ssh/sshd_config
 sudo service sshd restart
 # end
