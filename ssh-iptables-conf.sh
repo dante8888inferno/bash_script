@@ -6,6 +6,7 @@ sudo apt install xtables-addons-common -y
 
 # start change port
 echo "Port $1" >> /etc/ssh/sshd_config
+echo "Port $2" >> /etc/ssh/sshd_config
 sudo service sshd restart
 # end
 
@@ -79,10 +80,5 @@ then
   sudo iptables -A INPUT -p tcp --dport $1 -j DROP
 fi
 
-#установка iptables-persistent
-sudo apt-get install iptables-persistent -y
-#end
-#save rule
-sudo /sbin/iptables-save
-#end
+
 exit 0
