@@ -72,12 +72,6 @@ then
   fi
 fi
 
-
-if [ ! -z $4 ] || [ ! -z $6 ]
-then
-  sudo iptables -A INPUT -p tcp --dport $1 -j ACCEPT
-fi
-
 if [ ! -z $3 ] || [ ! -z $5 ]
 then
   sudo iptables -A INPUT -p tcp --dport $1 -j DROP
