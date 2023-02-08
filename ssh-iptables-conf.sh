@@ -77,7 +77,7 @@ then
 fi
 
 
-if [ ! -z $4 ] || [ ! -z $6 ]
+if [ ! -z $4 ]
 then
   sudo iptables -A INPUT -p tcp --dport $1 -j ACCEPT
 fi
