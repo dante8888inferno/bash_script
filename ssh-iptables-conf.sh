@@ -83,8 +83,5 @@ then
   sudo iptables -A INPUT -p tcp --dport $1 -j DROP
 fi
 
-service netfilter-persistent restart
-/sbin/iptables-save
-iptables -S
 
 exit 0
