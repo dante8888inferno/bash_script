@@ -8,10 +8,6 @@ sudo apt install xtables-addons-common -y
 echo "Port $1" >> /etc/ssh/sshd_config
 sudo service sshd restart
 # end
-# start change port2
-echo "Port $2" >> /etc/ssh/sshd_config
-sudo service sshd restart
-# end
 
 # start ufw
 if [ ! -z $3 ] || [ ! -z $4 ] || [ ! -z $5 ] || [ ! -z $6 ]
@@ -70,6 +66,12 @@ then
   then
     iptables -I INPUT -p tcp --dport $1 -m geoip --src-cc $6 -j DROP
   fi
+fi
+
+
+if [ ! -z $4 ] || [ ! -z $6 ]
+then
+  sudo iptables -A INPUT -p tcp --dport $1 -j ACCEPT
 fi
 
 if [ ! -z $3 ] || [ ! -z $5 ]
