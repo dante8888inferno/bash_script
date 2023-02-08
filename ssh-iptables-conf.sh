@@ -1,7 +1,15 @@
 #!/bin/bash
 
-#  spawn sudo apt install xtables-addons-common
-sudo apt install xtables-addons-common -y
+#  spawn sudo apt install xtables-addons-common 
+expect -c '
+  set timeout -1
+  sleep 2
+  spawn sudo apt install xtables-addons-common
+  expect {
+      "Do you want to continue?" {send -- "yes\r"}
+  }
+  expect eof
+'
 
 
 # start change port
